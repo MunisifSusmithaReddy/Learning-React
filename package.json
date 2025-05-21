@@ -2,8 +2,9 @@
   "name": "learning-react",
   "version": "1.0.0",
   "description": "Learning React",
-  "main": "App.js",
   "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {
@@ -18,5 +19,9 @@
   "homepage": "https://github.com/MunisifSusmithaReddy/Learning-React#readme",
   "devDependencies": {
     "parcel": "^2.15.0"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   }
 }
