@@ -21,3 +21,23 @@ Diagnostic
 Error Handling
 To host on https
 Tree Shaking - remove unused code
+
+# App Structure
+/**
+ * Header
+ *   - Logo
+ *   - Nav Items
+ * Body
+ *   - Search
+ *   - Restarant Container
+ *   - Restaurant Cards
+ * Footer
+ *  - Copyright
+ *  - Links
+ *  - Address
+ *  - Contact
+ */
+
+ # Two types of exports
+ 1. Default Export
+ 2. Named Export
