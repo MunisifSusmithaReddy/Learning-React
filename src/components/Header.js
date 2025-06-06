@@ -1,8 +1,21 @@
-import React, { useState } from 'react'; // Importing React and useState hook
+import React, { useState, useEffect } from 'react'; // Importing React and useState hook
 import { LOGO_URL } from '../utils/constants'; // Importing the constant for logo URL
+import { Link } from 'react-router'; // Importing Link for navigation
 
 const Header = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false); // State to manage login status
+    const [isLoggedIn1, setIsLoggedIn1] = useState(false); // State to manage login status
+    // useEffect(() => {
+    //     console.log("Header component mounted");
+    // }); // Everytime the component renders, this will log a message to the console
+
+    // useEffect(() => {
+    //     console.log("Header component mounted");
+    // }, []); // This will run only once when the component mounts
+
+    useEffect(() => {
+        console.log("Header component mounted");
+    }, [isLoggedIn]); // This will run when the component mounts and whenever the isLoggedIn state changes
     return (
         <div className="header">
             <div>
@@ -10,13 +23,18 @@ const Header = () => {
             </div>
             <div className='nav-items'>
                 <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Contact</li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><a href="/about">About</a></li> {/** page will reloads by using anchor tag */}
+                    <li><Link to="/contact">Contact</Link></li> {/** page will not reloads by using Link tag */}
                     <li>Cart</li>
                     <button className='login' onClick={() => {
                         setIsLoggedIn(!isLoggedIn);
-                    }}>{isLoggedIn ? 'Logout' : 'Login' }</button>
+                        // setIsLoggedIn1(!isLoggedIn1);
+                    }}>{isLoggedIn ? 'Logout' : 'Login'}</button>
+                     <button className='login' onClick={() => {
+                        // setIsLoggedIn(!isLoggedIn);
+                        setIsLoggedIn1(!isLoggedIn1);
+                    }}>{isLoggedIn ? 'Logout1' : 'Login1'}</button>
                 </ul>
             </div>
         </div>
