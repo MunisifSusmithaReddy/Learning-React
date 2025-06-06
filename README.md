@@ -61,3 +61,22 @@ Finds the difference between updated virtual DOM and real Virtual DOM
 
 Old     New
  20      17  -> 20-17 = 3
+
+# Two types of Architecture
+1. Monolith
+2. Micro Services
+
+
+# Rendering API data in UI
+1. Page Loads -> API (It may takes 5s) -> you are rendering the page
+2. Page Loads -> Render -> API -> Re-Renders (Best way)
+
+# CORS Error
+
+Origin 1                Origin 2
+localhost     ->        swiggy
+          options call
+           preflight
+
+              <-
+            Headers to access the API

@@ -47,7 +47,7 @@
 
 .restaurant-logo {
     width: 100%;
-    height: 200px;
+    height: 100px;
 }
 
 .filter-btn {
@@ -57,3 +57,42 @@
     background-color: lightblue;
     cursor: pointer;
 }
+
+.login {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid black;
+    background-color: lightgreen;
+    cursor: pointer;
+}
+
+.skeleton-loader {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.skeleton-card {
+    width: 220px;
+    height: 500px;
+    padding: 10px;
+    margin: 20px;
+    background-color: lightgray;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    justify-content: space-between;
+}
+
+.search-container>div>button {
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.search-container>div>input {
+    height: 35px;
+}
+
