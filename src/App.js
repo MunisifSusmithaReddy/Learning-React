@@ -7,14 +7,16 @@ import { createBrowserRouter, RouterProvider } from 'react-router';
 import About from './components/About';
 import ContactUs from './components/Contact';
 import ErrorPage from './components/ErrorPage';
+import { Outlet } from 'react-router';
+import RestaurantMenu from './components/RestaurantMenu';
 
 
 const AppLayout = () => {
-  console.log(<Body />)
     return (
         <div>
             <Header />
-            <Body />
+            <Outlet />
+            {/** Outlet is used to render the child components of the current route */}
         </div>
     )
 }
@@ -23,14 +25,24 @@ const routes = createBrowserRouter([
     {
         path: '/',
         element: <AppLayout />,
-    },
-    {
-        path: '/about',
-        element: <About />,
-    },
-     {
-        path: '/contact',
-        element: <ContactUs />,
+        children: [
+            {
+                path: '/',
+                element: <Body />,
+            },
+            {
+                path: '/about',
+                element: <About />,
+            },
+            {
+                path: '/contact',
+                element: <ContactUs />,
+            },
+            {
+                path: '/restaurant/:restaurantId',
+                element: <RestaurantMenu />
+            }
+        ]
     },
     {
         path: '*',
@@ -39,7 +51,7 @@ const routes = createBrowserRouter([
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<RouterProvider router={routes }/>);
+root.render(<RouterProvider router={routes} />);
 
 
 
