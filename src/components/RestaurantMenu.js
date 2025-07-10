@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { MEDIA_ASSETS_URL } from '../utils/constants'; // Importing the constant for media assets URL
 import SkeletonLoader from './SkeletonLoader';
 import { useParams } from 'react-router'; // Importing useParams to access route parameters
+import RestaurantCategory from './RestaurantCategory'; // Importing RestaurantCategory component
 
 const RestaurantMenu = () => {
     const [resInfo, setResInfo] = useState(null);
@@ -26,7 +27,8 @@ const RestaurantMenu = () => {
     // Destructuring the required information from the response
     const { name, cuisines, costForTwoMessage, avgRating, cloudinaryImageId } = resInfo?.cards[2]?.card?.card?.info || {};
     const { itemCards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card.card || {};
-    console.log(itemCards);
+    const itemCategories = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(card => card.card.card['@type'] === 'type.googleapis.com/swiggy.presentation.food.v2.ItemCategory') || [];
+    console.log('itemCategories', itemCategories);
     return !resInfo ? <SkeletonLoader /> : <div className="restaurant-menu-container">
         <h1>{name}</h1>
         <div className="restaurant-menu">
@@ -35,7 +37,7 @@ const RestaurantMenu = () => {
             <div>{costForTwoMessage}</div>
             <div>{cuisines?.join(',')}</div>
         </div>
-        {itemCards?.map(item => {
+        {/* {itemCards?.map(item => {
             const { name, price, description, imageId } = item.card.info
             return (
                 <div className='menu-item' key={item.card.info.id}>
@@ -47,6 +49,9 @@ const RestaurantMenu = () => {
                         <img className='restaurant-menu-item-logo' src={`${MEDIA_ASSETS_URL}${imageId}`}/>
                 </div>
             )
+        })} */}
+        {itemCategories.map((category) => {
+            return <RestaurantCategory category={category} key={category.card.card.title}/>
         })}
         </div>
     ;

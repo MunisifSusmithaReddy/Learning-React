@@ -4,7 +4,6 @@ import { Link } from 'react-router'; // Importing Link for navigation
 
 const Header = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false); // State to manage login status
-    const [isLoggedIn1, setIsLoggedIn1] = useState(false); // State to manage login status
     // useEffect(() => {
     //     console.log("Header component mounted");
     // }); // Everytime the component renders, this will log a message to the console
@@ -31,10 +30,6 @@ const Header = () => {
                         setIsLoggedIn(!isLoggedIn);
                         // setIsLoggedIn1(!isLoggedIn1);
                     }}>{isLoggedIn ? 'Logout' : 'Login'}</button>
-                     <button className='login' onClick={() => {
-                        // setIsLoggedIn(!isLoggedIn);
-                        setIsLoggedIn1(!isLoggedIn1);
-                    }}>{isLoggedIn ? 'Logout1' : 'Login1'}</button>
                 </ul>
             </div>
         </div>

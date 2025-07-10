@@ -8,7 +8,7 @@ const RestaurantCard = (props) => { // props is an object that contains all the 
     console.log('props.resObj.info', props.resObj.info);
     return (
         <Link to={`/restaurant/${id}`} style={{ textDecoration: 'none', color: 'black' }}> {/* Using Link to navigate to restaurant details page */}
-         <div className='restaurant-card'>
+         <div className='restaurant-card rounded-lg'>
                     <img className='restaurant-logo' src={`${MEDIA_ASSETS_URL}${cloudinaryImageId}`}/>
                     <h2>{name}</h2>
                     <h4>{cuisines.join(', ')}</h4>

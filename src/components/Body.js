@@ -78,7 +78,7 @@ const Body = () => {
         restaurantData.length == 0 ? <SkeletonLoader /> : <div className="body">
             <div className='search-container'>
                 <div>
-                    <input type="text" className="search-input" placeholder="Search for restaurants" value={searchText} onChange={onSearchInputChange} />
+                    <input type="text" className="search-input border" placeholder="Search for restaurants" value={searchText} onChange={onSearchInputChange} />
                     <button className='search-btn' onClick={onSearchButtonClick}>Search</button>
                 </div>
 
